@@ -37,21 +37,26 @@ def index(requset):
     
     return render(requset,'users/index.html')
 
-def user_register(requset):
-    if requset.method == 'POST':
-        myform = RegisterForm(requset.POST)
+
+
+def user_register(request):
+    if request.method == 'POST':
+        myform = RegisterForm(request.POST)
         if myform.is_valid():
-            name = myform.cleaned_data['username']
-            password = myform.cleaned_data['password']
-            email = myform.cleaned_data['email']
-            user = User(username=name, password=password, email=email)
-            user.is_active = True
-            user.save()
-            print('saved')
+            #name = myform.cleaned_data['username']
+            #password = myform.cleaned_data['password']
+            #email = myform.cleaned_data['email']
+            #user = User(username=name, password=password, email=email)
+            #user.is_active = True
+            #user.save()
+            new_user  = myform.save(commit=False)
+            new_user.set_password(myform.cleaned_data['password'])
+            new_user.save()
+            return render(request,'users/register_done.html')
         else:
             return HttpResponse('Invalid username or password')    
     else:
         myform = RegisterForm()
     
     context = {'myform':myform}
-    return render(requset,'users/register.html',context=context)
+    return render(request,'users/register.html',context=context)
