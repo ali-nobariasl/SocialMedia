@@ -1,9 +1,12 @@
 
-        <h2>LogInf Page</h2>
-        <form method="POST">
-            {% csrf_token %}
+<h2>LogIn Page</h2>
+    <form method="POST">
+        {% csrf_token %}
 
-            {{form.as_p}}
-            <button type="submit" >submit</button>
-        </form>
+        {{form.as_p}}
+        <button type="submit" >submit</button>
+        <p><a href="{% url 'password_reset' %}">
+            Forget Password? bura bas dostum.
+        </a></p>
+    </form>
 
