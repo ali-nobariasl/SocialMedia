@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .forms import LoginForm
+from django.contrib.auth.models import User
+from .forms import LoginForm, RegisterForm
 
 
 def user_login(request):
@@ -35,3 +36,22 @@ def user_logout(request):
 def index(requset):
     
     return render(requset,'users/index.html')
+
+def user_register(requset):
+    if requset.method == 'POST':
+        myform = RegisterForm(requset.POST)
+        if myform.is_valid():
+            name = myform.cleaned_data['username']
+            password = myform.cleaned_data['password']
+            email = myform.cleaned_data['email']
+            user = User(username=name, password=password, email=email)
+            user.is_active = True
+            user.save()
+            print('saved')
+        else:
+            return HttpResponse('Invalid username or password')    
+    else:
+        myform = RegisterForm()
+    
+    context = {'myform':myform}
+    return render(requset,'users/register.html',context=context)
