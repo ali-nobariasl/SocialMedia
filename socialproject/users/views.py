@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .forms import LoginForm, RegisterForm
-
+from .models import Profile
 
 def user_login(request):
     if request.method == "POST":
@@ -52,6 +52,7 @@ def user_register(request):
             new_user  = myform.save(commit=False)
             new_user.set_password(myform.cleaned_data['password'])
             new_user.save()
+            Profile.objects.create(user=new_user)
             return render(request,'users/register_done.html')
         else:
             return HttpResponse('Invalid username or password')    
@@ -60,3 +61,13 @@ def user_register(request):
     
     context = {'myform':myform}
     return render(request,'users/register.html',context=context)
+
+
+
+def edit(request):
+    if request.method == 'POST':
+        pass
+    else:
+        pass
+    context = {}
+    return render(request,'users/edit.html',context=context)

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-
+from .models import Profile
 
 
 class LoginForm(forms.Form):
@@ -19,3 +19,14 @@ class RegisterForm(forms.ModelForm):
         if self.cleaned_data['password'] != self.cleaned_data['password2']:
             raise forms.ValidationError('password is incorrect')
         return self.cleaned_data['password']
+    
+    
+class ProfileEditForm(forms.ModelForm):
+    class Meta:
+        model= Profile
+        fields = ('photo',)
+        
+class UserEditForm(forms.ModelForm):
+    class Meta:
+        model= User
+        fields = ('first_name', 'email','last_name')
