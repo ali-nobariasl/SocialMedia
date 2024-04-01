@@ -1,3 +1,4 @@
+from typing import Iterable
 from django.db import models
 from users.models import Profile
 from django.conf import settings
@@ -15,5 +16,7 @@ class PostModel(models.Model):
     def __str__(self):
         return self.title
     
-    
+    def save(self):
+        
+        return super().save(force_insert, force_update, using, update_fields)
     
