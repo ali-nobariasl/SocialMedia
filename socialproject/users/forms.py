@@ -5,7 +5,7 @@ from .models import Profile
 
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=30)
-    password = forms.CharField(max_length=30, widget=forms.PasswordInput)
+    password = forms.CharField(widget=forms.PasswordInput)
     
 
 class RegisterForm(forms.ModelForm):
@@ -24,9 +24,9 @@ class RegisterForm(forms.ModelForm):
 class ProfileEditForm(forms.ModelForm):
     class Meta:
         model= Profile
-        fields = ('photo',)
+        fields = {'photo',}
         
 class UserEditForm(forms.ModelForm):
     class Meta:
         model= User
-        fields = ('first_name', 'email','last_name')
+        fields = {'first_name', 'email','last_name'}
