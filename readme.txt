@@ -8,3 +8,12 @@ them run this script:
     nmp run build 
 3.link this style.css to every where you want
     <link rel="stylesheet" href="{% static 'users/static/user/style.css' %}">
+
+4. see the website for more build in functions like:
+    class="h-8"
+    class="h-8 w-8"
+    class="h-8 w-8 mr-2"
+    class="flex"
+    class="font-semibold"
+    class="font-semibold text-lg text-gray-500"
+    
