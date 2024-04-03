@@ -16,4 +16,6 @@ them run this script:
     class="flex"
     class="font-semibold"
     class="font-semibold text-lg text-gray-500"
+    class="py-4 px-2 text-gray-500"
+    class="space-x-1" 
     
