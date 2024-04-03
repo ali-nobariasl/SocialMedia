@@ -5,10 +5,13 @@
 
     <h3> This is index</h3> 
     {% for post in post_model %}
-        {{post.title}}
-        {{post.user}}
-        <img src="{{post.image.url}}" >
-        <br>
+        <div>
+            title: {{post.title}}  <br>
+            user name: {{post.user}} <br>
+            content: {{ post.content}} <br>
+            <img src="{{post.image.url}}" >
+            <br>
+        </div>
     {% endfor %}
 
 {% endblock %}

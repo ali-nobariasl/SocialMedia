@@ -1,6 +1,7 @@
 {% load static %}
 <html>
     <head>
+        <link rel="stylesheet" href="{% static 'users/static/user/style.css' %}">
     </head>
     <body>
         {% if request.user.is_authenticated %}
