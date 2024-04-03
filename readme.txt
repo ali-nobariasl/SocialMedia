@@ -18,4 +18,4 @@ them run this script:
     class="font-semibold text-lg text-gray-500"
     class="py-4 px-2 text-gray-500"
     class="space-x-1" 
-    
+    class="rounded overflow-hidden w-[470px] h-[470px] bg-white shadow-lg"

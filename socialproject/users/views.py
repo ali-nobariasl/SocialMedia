@@ -36,9 +36,12 @@ def user_logout(request):
 
 @login_required(login_url='user_login')
 def index(requset):
-    post_model = PostModel.objects.filter(user=requset.user)
+    current_user = requset.user
+    post_model = PostModel.objects.filter(user=current_user)
+    profile = Profile.objects.filter(user=current_user).first()
     
-    context = {'post_model': post_model}
+    context = {'post_model': post_model,
+               'profile': profile,}
     return render(requset,'users/index.html',context=context)
 
 
