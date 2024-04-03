@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .forms import LoginForm, RegisterForm , UserEditForm , ProfileEditForm
 from .models import Profile
+from posts.models import PostModel
+
 #Your password can’t be entirely numeric.
 def user_login(request):
     if request.method == "POST":
@@ -34,8 +36,10 @@ def user_logout(request):
 
 @login_required(login_url='user_login')
 def index(requset):
+    post_model = PostModel.objects.filter(user=requset.user)
     
-    return render(requset,'users/index.html')
+    context = {'post_model': post_model}
+    return render(requset,'users/index.html',context=context)
 
 
 

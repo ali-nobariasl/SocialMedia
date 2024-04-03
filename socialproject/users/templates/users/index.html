@@ -3,6 +3,12 @@
 
 {% block content %}
 
-    <h3> This is index</h3>
+    <h3> This is index</h3> 
+    {% for post in post_model %}
+        {{post.title}}
+        {{post.user}}
+        <img src="{{post.image.url}}" >
+        <br>
+    {% endfor %}
 
 {% endblock %}
