@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import PostForm
 from .models import PostModel
+from users.models import Profile
 from django.contrib.auth.decorators import login_required
 
 
@@ -20,3 +21,11 @@ def create_post(request):
         'form': my_form,
     }
     return render(request, 'posts/create.html', context=context)
+
+
+def feed(request):
+    posts = PostModel.objects.all()
+    profile = Profile.objects.all()
+    context = {'posts': posts,
+               'profile': profile}
+    return render(request, 'posts/feed.html',context=context)
