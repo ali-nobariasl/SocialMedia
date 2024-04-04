@@ -16,20 +16,21 @@
                         <div class="mx-2 my-2 font-bold" >
                             <span class='text-indigo-500'>{{ post.user }}</span>
                         </div>
-                        <img src="{{ post.image.url}}" >
                     </div>
-                    <div class="px-6 py-4">
+                    <img src="{{ post.image.url}}" >
+                </div>
+                <div class="px-6 py-4">
                         <div class="icon-container flex gap-3">
                             <img class="w-5 h-5" src="{% static 'user/images/share.png' %}" >
                             <img class="w-5 h-5" src="{% static 'user/images/comment.png' %}" >
                             <img class="w-5 h-5" src="{% static 'user/images/like.png' %}" > 
                         </div>
-                    </div>
-                    <div class="px-6 py-4" >
-                        <div class="font-bold text-xl mb-2" > {{post.title}} </div>
-                        <p class="text-gray-700 text-base" >{{post.Content}}</p>
-                    </div>
-                </div>            
+                </div>
+                <div class="px-6 py-4" >
+                        <div class="font-bold text-xl mb-2" > {{ post.title }} </div>
+                        <p class="text-gray-700 text-base" >{{ post.content }}</p>
+                </div>
+                         
             </a>
         {% endfor %}
     </div>
