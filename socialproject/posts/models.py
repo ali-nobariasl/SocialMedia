@@ -24,3 +24,5 @@ class PostModel(models.Model):
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
     
+    def liked_count(self):
+        self.likenumber = self.liked_by.count()

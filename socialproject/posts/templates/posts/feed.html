@@ -21,9 +21,13 @@
                 </div>
                 <div class="px-6 py-4">
                         <div class="icon-container flex gap-2">
-                            <p> {{ post.likenumber}} </p>
+                            
                             <a href="{% url 'like' post.pk %}" >
+                                {% if logged_user in post.liked_by.all %}
+                                    <img class="w-5 h-5" src="{% static 'user/images/like.png' %}" >
+                                {% else %}
                                 <img class="w-5 h-5" src="{% static 'user/images/unlike.png' %}" >
+                                {% endif %}
                             </a>
                             <a href="" >
                                 <img class="w-5 h-5" src="{% static 'user/images/comment.png' %}" >
@@ -32,6 +36,14 @@
                                 <img class="w-5 h-5" src="{% static 'user/images/share.png' %}" > 
                             </a>
                         </div>
+                </div>
+                <div> 
+                    {% if post.liked_by.count < 1 %}
+                    {% elif post.liked_by.count == 1 %}
+                        {{post.liked_by.first }} liked this
+                    {% elif post.liked_by.count > 1 %}
+                        {{post.liked_by.first }} & {{post.liked_by.count}} liked this
+                    {% endif %}
                 </div>
                 <div class="px-6 py-4" >
                         <div class="font-bold text-xl mb-2" > {{ post.title }} </div>

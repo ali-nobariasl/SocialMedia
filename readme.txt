@@ -19,3 +19,10 @@ them run this script:
     class="py-4 px-2 text-gray-500"
     class="space-x-1" 
     class="rounded overflow-hidden w-[470px] h-[470px] bg-white shadow-lg"
+
+
+install 
+1. pip install django-mathfilters
+2. use  { load mathfilters }  in first row of HTML
+3. add mathfilters to django setting files app section
+for using math in HTML 
