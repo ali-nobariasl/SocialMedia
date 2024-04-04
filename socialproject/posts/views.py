@@ -14,7 +14,7 @@ def create_post(request):
           new_post = my_form.save(commit=False)
           new_post.user = request.user
           new_post.save()
-          #return HttpResponse('post created successfully')  
+          return redirect('index')  
     else:
         my_form = PostForm()
     context  = {

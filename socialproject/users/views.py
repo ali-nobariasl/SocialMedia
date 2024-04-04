@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -18,7 +18,7 @@ def user_login(request):
             if user is not None:
                 login(request,user)  
                 user.is_active = True
-                return HttpResponse("user logged in successfully")  
+                return redirect('index')  
             else:
                 return HttpResponse("Invalid username or password"+username+ "--"+password)  
     else: 
@@ -37,7 +37,14 @@ def user_logout(request):
 @login_required(login_url='user_login')
 def index(requset):
     current_user = requset.user
+    
+    
+    #my_model = PostModel.objects.filter(user=current_user)
+    #if my_model:
+    #    post_model= my_model
+    #else:
     post_model = PostModel.objects.filter(user=current_user)
+        
     profile = Profile.objects.filter(user=current_user).first()
     
     context = {'post_model': post_model,

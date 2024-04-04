@@ -7,6 +7,7 @@
         <h2 class="text-3xl font-normal mb-2 text-gray-500"> Posts </h2> 
     </div>
     <div class="grid mx-60 p-10 grid-cols-1">  
+    {% if post_model %}   
         {% for post in post_model %}
         <!-- cart  -->
             <a href="" >
@@ -33,6 +34,13 @@
                          
             </a>
         {% endfor %}
+    {% else %}
+        <div class="rounded overflow-hidden px-5 py-2 bg-white shadow-lg"> 
+            <h3>There is no post, Add new posts here:</h3>
+            <p class=" py-2"> </p> 
+            <a href="{% url 'create' %}" class="bg-green-500 text-white px-5 py-2">Create Post</a>
+        </div>
+    {% endif %}
     </div>
         
 
