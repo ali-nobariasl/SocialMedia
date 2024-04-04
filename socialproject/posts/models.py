@@ -14,6 +14,7 @@ class PostModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     liked_by = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                       related_name='posts_liked', blank=True)
+    likenumber=models.IntegerField(default=0)
     
     def __str__(self):
         return self.title

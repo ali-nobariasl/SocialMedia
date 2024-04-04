@@ -20,11 +20,16 @@
                     <img src="{{ post.image.url}}" >
                 </div>
                 <div class="px-6 py-4">
-                        <div class="icon-container flex gap-3">
-                            <img class="w-5 h-5" src="{% static 'user/images/share.png' %}" >
-                            <img class="w-5 h-5" src="{% static 'user/images/comment.png' %}" >
+                        <div class="icon-container flex gap-2">
+                            <p> {{ post.likenumber}} </p>
                             <a href="{% url 'like' post.pk %}" >
-                                <img class="w-5 h-5" src="{% static 'user/images/like.png' %}" > 
+                                <img class="w-5 h-5" src="{% static 'user/images/unlike.png' %}" >
+                            </a>
+                            <a href="" >
+                                <img class="w-5 h-5" src="{% static 'user/images/comment.png' %}" >
+                            </a>
+                            <a href="" >
+                                <img class="w-5 h-5" src="{% static 'user/images/share.png' %}" > 
                             </a>
                         </div>
                 </div>

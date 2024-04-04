@@ -40,8 +40,10 @@ def like_post(request, pk):
     print(post.liked_by)
     if request.user in post.liked_by.all():
         post.liked_by.remove(request.user)
+        post.likenumber -= 1
     else:
         post.liked_by.add(request.user)
+        post.likenumber += 1
     print(post.liked_by)    
     context= {}
     #return render(request,'posts/feed.html',context=context)
