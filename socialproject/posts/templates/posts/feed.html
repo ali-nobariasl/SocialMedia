@@ -50,11 +50,22 @@
                         <div class="font-bold text-xl mb-2" > {{ post.title }} </div>
                         <p class="text-gray-700 text-base" >{{ post.content }}</p>
                 </div>
-                <div class="px-6 py-5">
+                <div class="px-6 py-1">
                     {% for commnet in post.comments.all %}
                         {{ commnet }}
                     {% endfor %}
-                </div>        
+                </div>     
+
+                <div class="px-5 py-5" class="bg-white rounded " >  
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="flex">
+                            <div class=" border rounded mr-10 text-gray-700">{{ comment_form.body }} </div>
+                            <input type="hidden" id="post_id" name="post_id" value="{{post.id}}">
+                            <button class="bg-green-500 text-white px-5 py-2" type="submit">comment</button>
+                        </div>
+                    </form>
+                </div>    
             </a>
         {% endfor %}
     </div>

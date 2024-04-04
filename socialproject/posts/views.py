@@ -1,7 +1,7 @@
 from django.http import HttpResponse 
 from django.shortcuts import render , redirect
-from .forms import PostForm
-from .models import PostModel
+from .forms import PostForm , CommentForm
+from .models import PostModel , Commment
 from users.models import Profile
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
@@ -24,12 +24,26 @@ def create_post(request):
 
 
 def feed(request):
+    
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            post_id = request.POST.get('post_id')
+            post = PostModel.objects.get(id=post_id)
+            new_comment.post = post
+            new_comment.save()
+    else: 
+        comment_form = CommentForm()
+        
     posts = PostModel.objects.all()
     profile = Profile.objects.all()
     logged_user = request.user
+    
     context = {'posts': posts,
                'profile': profile,
-               'logged_user': logged_user}
+               'logged_user': logged_user,
+               'comment_form': comment_form,}
     return render(request, 'posts/feed.html',context=context)
 
 
