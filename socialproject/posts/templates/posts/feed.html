@@ -23,7 +23,9 @@
                         <div class="icon-container flex gap-3">
                             <img class="w-5 h-5" src="{% static 'user/images/share.png' %}" >
                             <img class="w-5 h-5" src="{% static 'user/images/comment.png' %}" >
-                            <img class="w-5 h-5" src="{% static 'user/images/like.png' %}" > 
+                            <a href="{% url 'like' post.pk %}" >
+                                <img class="w-5 h-5" src="{% static 'user/images/like.png' %}" > 
+                            </a>
                         </div>
                 </div>
                 <div class="px-6 py-4" >

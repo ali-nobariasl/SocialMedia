@@ -1,10 +1,10 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.http import HttpResponse 
+from django.shortcuts import render , redirect
 from .forms import PostForm
 from .models import PostModel
 from users.models import Profile
 from django.contrib.auth.decorators import login_required
-
+from django.shortcuts import get_object_or_404
 
 login_required(login_url='user_login')
 def create_post(request):
@@ -29,3 +29,20 @@ def feed(request):
     context = {'posts': posts,
                'profile': profile}
     return render(request, 'posts/feed.html',context=context)
+
+
+def like_post(request, pk):
+    
+    post_id = request.POST.get('post_id')
+    post = get_object_or_404(PostModel, id=pk)
+    print(pk)
+    print(post)
+    print(post.liked_by)
+    if request.user in post.liked_by.all():
+        post.liked_by.remove(request.user)
+    else:
+        post.liked_by.add(request.user)
+    print(post.liked_by)    
+    context= {}
+    #return render(request,'posts/feed.html',context=context)
+    return redirect('feed')
