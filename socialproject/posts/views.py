@@ -35,17 +35,14 @@ def feed(request):
 
 def like_post(request, pk):
     
-    post_id = request.POST.get('post_id')
     post = get_object_or_404(PostModel, id=pk)
     
     if request.user in post.liked_by.all():
         post.liked_by.remove(request.user)
-        post.likenumber -= 1
     else:
         post.liked_by.add(request.user)
-        post.likenumber += 1
-    print(post.liked_by) 
-    print(post.liked_by.count())   
+       
     context= {}
-    #return render(request,'posts/feed.html',context=context)
+    
     return redirect('feed')
+

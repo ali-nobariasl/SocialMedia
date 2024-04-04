@@ -24,5 +24,14 @@ class PostModel(models.Model):
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
     
-    def liked_count(self):
-        self.likenumber = self.liked_by.count()
+   
+class Commment(models.Model):
+    post = models.ForeignKey(PostModel, related_name='comments', on_delete=models.CASCADE )
+    body = models.TextField(blank=True)
+    created = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ('created',)
+        
+    def __str__(self):
+        return self.body

@@ -50,7 +50,11 @@
                         <div class="font-bold text-xl mb-2" > {{ post.title }} </div>
                         <p class="text-gray-700 text-base" >{{ post.content }}</p>
                 </div>
-                         
+                <div class="px-6 py-5">
+                    {% for commnet in post.comments.all %}
+                        {{ commnet }}
+                    {% endfor %}
+                </div>        
             </a>
         {% endfor %}
     </div>
