@@ -11,4 +11,4 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model= Commment
-        fields = {'body'}
+        fields = {'body','posted_by',}
