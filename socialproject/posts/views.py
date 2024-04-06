@@ -60,3 +60,5 @@ def like_post(request, pk):
     
     return redirect('feed')
 
+def ali():
+    return 's'

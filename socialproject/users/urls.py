@@ -26,4 +26,6 @@ urlpatterns = [
     
     path('register/', views.user_register, name='user_register'),
     path('edit/',views.edit, name='edit'),
+    
+     #path('edit/',views.edit, name='edit'),
 ]
