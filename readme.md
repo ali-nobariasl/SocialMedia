@@ -1,7 +1,8 @@
 This is a Social Media for reviewing book 
 
 which you can add comments and like posts made by users, 
-<>
+
+
 to user tailwind:
 
 tailwindcss in tw.css
@@ -35,6 +36,10 @@ install
 
 
 <h2>These are the paths:</h2>
+
+<h3>Main page:</h3> 
+
+http://127.0.0.1:8000/
 
 <h3>Login and logout:</h3> 
 
