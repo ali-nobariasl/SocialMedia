@@ -59,3 +59,6 @@ def like_post(request, pk):
     context= {}
     
     return redirect('feed')
+
+def get_post(request, pk):
+    return pass
