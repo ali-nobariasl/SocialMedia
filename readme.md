@@ -1,7 +1,11 @@
 This is a Social Media for reviewing book 
+
 which you can add comments and like posts made by users, 
+<>
 to user tailwind:
+
 tailwindcss in tw.css
+
 them run this script:
  1. add this to package.json :
     "build": "tailwind build users/static/user/tw.css -o users/static/user/style.css "
@@ -29,26 +33,49 @@ install
 3. add mathfilters to Django setting files app section
    for using math in HTML 
 
-These are the paths: <b>
-Login and logout: <b>
-users/ login/ [name='user_login'] <b>
-users/ logout/ [name='user_logout'] <b>
-users/ [name='index'] <b>
 
-Password change and reset: <b>
-users/ password_change/ [name='password_change'] <b>
-users/ password_change_done/ [name='password_change/done/'] <b>
-users/ password_reset/ [name='password_reset'] <b>
-users/ password_reset/done/ [name='password_reset_done'] <b>
-users/ reset/<uidb64>/<token>/ [name='password_reset_confirm'] <b>
-users/ reset/done/ [name='password_reset_complete'] <b>
+<h2>These are the paths:</h2>
 
-Registering a new user: <b>
-users/ register/ [name='user_register'] <b>
-users/ edit/ [name='edit'] <b>
+<h3>Login and logout:</h3> 
 
-#create like and comment on posts: <b>
-posts/ <b>
-posts/ create/ [name='create'] <b>
-posts/ feed/ [name='feed'] <b>
-posts/ like/<int:pk> [name='like'] <b>
+users/ login/ [name='user_login'] 
+
+users/ logout/ [name='user_logout'] 
+
+users/ [name='index'] 
+
+<h3>Password change and reset: </h3>
+
+users/ password_change/ [name='password_change']
+
+users/ password_change_done/ [name='password_change/done/'] 
+
+users/ password_reset/ [name='password_reset'] 
+
+users/ password_reset/done/ [name='password_reset_done'] 
+
+users/ reset/<uidb64>/<token>/ [name='password_reset_confirm'] 
+
+users/ reset/done/ [name='password_reset_complete'] 
+
+Registering a new user: 
+
+users/ register/ [name='user_register'] 
+
+users/ edit/ [name='edit'] 
+
+<h3>Create like and comment on posts: </h3>
+
+posts/
+
+posts/ create/ [name='create']
+
+posts/ feed/ [name='feed'] 
+
+posts/ like/<int:pk> [name='like']
+
+
+![image](https://github.com/ali-nobariasl/SocialMedia/assets/56727121/0e883441-2e9e-40aa-8788-8801c3de9315)
+
+
+
