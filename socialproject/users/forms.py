@@ -30,3 +30,8 @@ class UserEditForm(forms.ModelForm):
     class Meta:
         model= User
         fields = {'first_name', 'email','last_name'}
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model= User
+        fields= ("__all__")
